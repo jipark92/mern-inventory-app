@@ -3,7 +3,6 @@ const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
 const InventoryModel = require('./models/Inventory')
-// require('env').config()
 
 app.use(cors())
 app.use(express.json())
@@ -27,21 +26,21 @@ app.post('/add', async (req,res)=>{
     res.json(grocery)
 })
 
-app.put('/update', async(req,res)=>{
-    const newGroceryName = req.body.newGroceryName
-    const id = req.body.id
+app.put('/update', async (req,res)=>{
+    const newGroceryName = req.body.newGroceryName;
+    const id = req.body.id;
 
     try {
-        await InventoryModel.find({},(err,updatedGrocery)=>{
-            updatedGrocery.groceryName = newGroceryName
+        await InventoryModel.findById(id,(err,updatedGrocery)=>{
+            updatedGrocery.name = newGroceryName
             updatedGrocery.save()
         })
     } catch (error) {
-        
+        console.log(error)
     }
 })
 
-app.delete('/delete/:id', async(req,res)=>{
+app.delete('/delete/:id', async (req,res)=>{
     const id = req.params.id
     await InventoryModel.findByIdAndRemove(id).exec();
     
