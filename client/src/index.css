@@ -53,6 +53,43 @@
 
 .inventory-container{
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+}
+
+.inventory-container .add-grocery-link{
+  font-size: 1.3rem;
+  text-decoration: none;
+  background-color: #0dcaf0;
+  color: white;
+  margin: 1rem;
+  padding: 0 0.5rem 0 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.basket-container{
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.basket-container .btns-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.basket-container .btns-container button{
+  padding: 0 0.5rem 0 0.5rem ;
+  border: none;
+  border-radius: 5px;
+}
+
+.add-grcoery-container{
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -61,10 +98,18 @@
   width: 100%;
 }
 
-.basket-container{
-  border: 1px solid black;
-  padding: 0.5rem;
+.add-grcoery-container div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-end;
 }
+
+.add-grcoery-container button{
+  font-size: 1.2rem;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
 
 .about-container{
   display: flex;
