@@ -1,7 +1,10 @@
 import Axios from 'axios'
 import {useState} from 'react'
+import { useNavigate } from "react-router-dom";
 
 export default function AddGrocery(props) {
+
+    const navigate = useNavigate();
 
     const [item, setItem] = useState("")
     const [quantity, setQuantity] = useState(0)
@@ -46,7 +49,10 @@ export default function AddGrocery(props) {
                     />
                 </p>
             </div>
-            <button onClick={addInventory}>Add Grocery</button>
+            <button onClick={()=>{
+                addInventory()
+                navigate("/inventory/", { replace: true })
+            }}>Add Grocery</button>
         </div>
     )
 }
