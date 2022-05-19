@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
 const InventoryModel = require('./models/Inventory')
+// require('env').config()
 
 app.use(cors())
 app.use(express.json())
@@ -25,5 +26,25 @@ app.post('/add', async (req,res)=>{
     await newGrocery.save()
     res.json(grocery)
 })
+
+app.put('/update', async(req,res)=>{
+    const newGroceryName = req.body.newGroceryName
+    const id = req.body.id
+
+    try {
+        await InventoryModel.find({},(err,updatedGrocery)=>{
+            updatedGrocery.groceryName = newGroceryName
+            updatedGrocery.save()
+        })
+    } catch (error) {
+        
+    }
+})
+
+app.delete('/delete/:id', async(req,res)=>{
+    const id = req.params.id
+    await InventoryModel.findByIdAndRemove(id).exec();
+    
+} )
 
 app.listen(3001, ()=>{console.log(`connected to port 3001`)})
