@@ -2,6 +2,8 @@
 
 export default function Inventory() {
     return (
-        <div>Inventory</div>
+        <div className="inventory-container">
+            <h1>Grocery Basket</h1>
+        </div>
     )
 }
