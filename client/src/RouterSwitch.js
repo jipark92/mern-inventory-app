@@ -2,7 +2,6 @@ import { BrowserRouter,Routes,Route } from "react-router-dom"
 import About from "./components/About"
 import Contact from "./components/Contact"
 import AddGrocery from "./components/grocery/AddGrocery"
-import UpdateGrocery from "./components/grocery/UpdateGrocery"
 import Header from "./components/Header"
 import Home from "./components/Home"
 import Inventory from "./components/Inventory"
@@ -17,7 +16,6 @@ export default function RouterSwitch() {
                 <Route path='/about' element={<About/>}/>
                 <Route path='/contact' element={<Contact/>}/>
                 <Route path='/add' element={<AddGrocery/>}/>
-                <Route path='/update' element={<UpdateGrocery/>}/>
             </Routes>
         </BrowserRouter>
     )

@@ -18,7 +18,7 @@ export default function AddGrocery(props) {
             detail: detail
         })        
         .then(res=>{
-            alert('item added')
+            // alert('item added')
         })
     }
 

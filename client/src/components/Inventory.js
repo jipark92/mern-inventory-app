@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Inventory() {
-
+    //read 
     const [inventory, setInventory] = useState([])
 
     useEffect(()=>{
@@ -11,8 +11,20 @@ export default function Inventory() {
         .then(res=>{
             setInventory(res.data)
         })
-    },[])
+    },[inventory])
 
+    //update
+    const [updateGrocery, setUpdateGrocery] = useState("")
+
+    const updateItem = (id) => {
+        console.log('clicked')
+        Axios.put('http://localhost:3001/update',{
+            id: id,
+            newGroceryName: updateGrocery
+        })
+    }
+
+    //delete
     const deleteItem = (id) =>{
         Axios.delete(`http://localhost:3001/delete/${id}`)
     }
@@ -29,9 +41,11 @@ export default function Inventory() {
                         <p>Quantity: {inv.quantity}</p>
                         <p>Detail: {inv.detail}</p>
                         <div className='btns-container'>
-                            <Link to="/update">
-                                <button className='bg-primary text-light'>EDIT</button>
-                            </Link>
+                        <input 
+                            type='text'
+                            onChange={(e)=>{setUpdateGrocery(e.target.value)}}
+                        />
+                            <button className='bg-primary text-light' onClick={()=>updateItem(inv._id)}>EDIT</button>
                             <button className='bg-danger text-light' onClick={()=>deleteItem(inv._id)}>DELETE</button>
                         </div>
                     </div>
