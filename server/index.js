@@ -19,5 +19,11 @@ app.get('/inventory', async(req,res)=>{
     })
 })
 
+app.post('/add', async (req,res)=>{
+    const grocery = req.body
+    const newGrocery = new InventoryModel(grocery)
+    await newGrocery.save()
+    res.json(grocery)
+})
 
 app.listen(3001, ()=>{console.log(`connected to port 3001`)})
