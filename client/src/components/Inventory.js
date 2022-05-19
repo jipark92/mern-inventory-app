@@ -13,6 +13,10 @@ export default function Inventory() {
         })
     },[])
 
+    const deleteItem = (id) =>{
+        Axios.delete(`http://localhost:3001/delete/${id}`)
+    }
+
     return (
         <div className="inventory-container">
             <h1>Grocery Basket</h1>
@@ -25,8 +29,10 @@ export default function Inventory() {
                         <p>Quantity: {inv.quantity}</p>
                         <p>Detail: {inv.detail}</p>
                         <div className='btns-container'>
-                            <button className='bg-primary text-light'>EDIT</button>
-                            <button className='bg-danger text-light'>DELETE</button>
+                            <Link to="/update">
+                                <button className='bg-primary text-light'>EDIT</button>
+                            </Link>
+                            <button className='bg-danger text-light' onClick={()=>deleteItem(inv._id)}>DELETE</button>
                         </div>
                     </div>
                 )

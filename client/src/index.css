@@ -117,6 +117,15 @@
   padding: 0 0.5rem 0 0.5rem;
 }
 
+.update-grocery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border: 5px solid black;
+  height: 100%;
+}
 
 .about-container{
   display: flex;
