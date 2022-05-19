@@ -61,6 +61,11 @@
   width: 100%;
 }
 
+.basket-container{
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
 .about-container{
   display: flex;
   flex-direction: column;
