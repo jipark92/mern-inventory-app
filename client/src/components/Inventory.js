@@ -45,14 +45,12 @@ export default function Inventory() {
                         <div>
                             <input 
                                 type='text'
-                                placeholder='New Item'
+                                placeholder='New Item Name'
                                 onChange={(e)=>{setUpdateGrocery(e.target.value)}}
                             />
                             <button className='bg-primary text-light' onClick={()=>updateItem(inv._id)}>EDIT</button>
                             <button className='bg-danger text-light' onClick={()=>deleteItem(inv._id)}>DELETE</button>
-
                         </div>
-    
                         </div>
                     </div>
                 )
