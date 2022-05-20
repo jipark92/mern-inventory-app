@@ -2,12 +2,13 @@ import Axios from 'axios'
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 
-export default function AddGrocery(props) {
+export default function AddGrocery() {
     //redirect
     const navigate = useNavigate();
 
     const [item, setItem] = useState("")
     const [quantity, setQuantity] = useState(0)
+    const [price, setPrice] = useState(0)
     const [detail, setDetail] = useState('')
 
     const addInventory = () => {
@@ -15,6 +16,7 @@ export default function AddGrocery(props) {
         Axios.post('http://localhost:3001/add',{
             name: item,
             quantity: quantity,
+            price: price,
             detail: detail
         })        
         .then(res=>{
@@ -37,7 +39,13 @@ export default function AddGrocery(props) {
                     <input 
                     type='text'
                     onChange={(e)=>{setQuantity(e.target.value)}}
+                    />
+                </p>
 
+                <p>Price: 
+                    <input 
+                    type='number'
+                    onChange={(e)=>{setPrice(e.target.value)}}
                     />
                 </p>
 
@@ -45,7 +53,6 @@ export default function AddGrocery(props) {
                     <input 
                     type='text'
                     onChange={(e)=>{setDetail(e.target.value)}}
-
                     />
                 </p>
             </div>

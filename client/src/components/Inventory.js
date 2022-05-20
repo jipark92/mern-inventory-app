@@ -39,14 +39,20 @@ export default function Inventory() {
                         <p>#{i}</p>
                         <p>Item: {inv.name}</p>
                         <p>Quantity: {inv.quantity}</p>
+                        <p>Price: ${inv.price}</p>
                         <p>Detail: {inv.detail}</p>
                         <div className='btns-container'>
-                        <input 
-                            type='text'
-                            onChange={(e)=>{setUpdateGrocery(e.target.value)}}
-                        />
+                        <div>
+                            <input 
+                                type='text'
+                                placeholder='New Item'
+                                onChange={(e)=>{setUpdateGrocery(e.target.value)}}
+                            />
                             <button className='bg-primary text-light' onClick={()=>updateItem(inv._id)}>EDIT</button>
                             <button className='bg-danger text-light' onClick={()=>deleteItem(inv._id)}>DELETE</button>
+
+                        </div>
+    
                         </div>
                     </div>
                 )
