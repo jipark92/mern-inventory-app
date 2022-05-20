@@ -31,7 +31,7 @@ app.put('/update', async (req,res)=>{
     const id = req.body.id;
 
     try {
-        await InventoryModel.findById(id,(err,updatedGrocery)=>{
+        InventoryModel.findById(id,(err,updatedGrocery)=>{
             updatedGrocery.name = newGroceryName
             updatedGrocery.save()
         })
