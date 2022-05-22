@@ -13,7 +13,7 @@ export default function AddGrocery() {
 
     const addInventory = () => {
         console.log('clicked')
-        Axios.post('http://localhost:3001/add',{
+        Axios.post('https://mern-inventory-project.herokuapp.com/add',{
             name: item,
             quantity: quantity,
             price: price,

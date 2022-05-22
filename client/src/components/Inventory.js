@@ -7,7 +7,7 @@ export default function Inventory() {
     const [inventory, setInventory] = useState([])
 
     useEffect(()=>{
-        Axios.get('http://localhost:3001/inventory')
+        Axios.get('https://mern-inventory-project.herokuapp.com/inventory')
         .then(res=>{
             setInventory(res.data)
         })
@@ -18,7 +18,7 @@ export default function Inventory() {
 
     const updateItem = (id) => {
         console.log('clicked')
-        Axios.put('http://localhost:3001/update',{
+        Axios.put('https://mern-inventory-project.herokuapp.com/update',{
             id: id,
             newGroceryName: updateGrocery
         })
@@ -26,7 +26,7 @@ export default function Inventory() {
 
     //delete
     const deleteItem = (id) =>{
-        Axios.delete(`http://localhost:3001/delete/${id}`)
+        Axios.delete(`https://mern-inventory-project.herokuapp.com/delete${id}`)
     }
 
     return (
