@@ -1,3 +1,3 @@
 MERN Stack Inventory app with CRUD feature
 
-DEMO: 
+DEMO: https://mern-inventory-app.netlify.app/
